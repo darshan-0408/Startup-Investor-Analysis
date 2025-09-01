@@ -43,4 +43,7 @@ selected_investor = st.sidebar.selectbox('Select Investor',sorted(list(set(df['i
 btn2 = st.sidebar.button('Find Investor Details')
 
 if btn2:
-    load_investor_details(selected_investor)
+    if (selected_investor['amount'] > 0):
+        load_investor_details(selected_investor)
+    else:
+        st.title("This investor has not invested!!")
